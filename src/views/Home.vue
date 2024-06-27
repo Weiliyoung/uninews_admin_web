@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <h1>Home Page</h1>
+    <h1>首页内容</h1>
+    <p>这是首页的内容部分。</p>
   </div>
 </template>
 
@@ -13,7 +14,6 @@ export default {
 
 <style scoped>
 .home {
-  text-align: center;
-  margin-top: 40px;
+  padding: 20px;
 }
 </style>
