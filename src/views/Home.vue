@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <h1>首页内容</h1>
-    <p>这是首页的内容部分。</p>
+    <h1>首页</h1>
+    <p>陈威仰大帅比</p>
   </div>
 </template>
 
