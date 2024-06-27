@@ -37,7 +37,7 @@ export default {
   display: flex;
   width: 90%; /* 使用百分比来设置宽度 */
   max-width: 1800px; /* 设置最大宽度 */
-  min-width: 1500px; /* 设置最小宽度 */
+  min-width: 1000px; /* 设置最小宽度 */
   height: 80%; /* 使用百分比来设置高度 */
   max-height: 1000px; /* 设置最大高度 */
   border-radius: 10px; /* 增加圆角效果 */
@@ -50,7 +50,7 @@ export default {
 .divider {
   width: 1px;
   background-color: #d9d9d9;
-  margin: 0 0px;
+  margin: 20px 20px;
 }
 
 .content {
