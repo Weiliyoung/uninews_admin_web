@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
-import About from '../views/About.vue';
 import CrawlerManager from '../views/CrawlerManager.vue';
+import CrawlerTasks from '../views/CrawlerTasks'
 
 const routes = [
     {
@@ -10,14 +10,14 @@ const routes = [
         component: Home
     },
     {
-        path: '/about',
-        name: 'About',
-        component: About
-    },
-    {
         path: '/crawler-manager',
         name: 'CrawlerManager',
         component: CrawlerManager
+    },
+    {
+        path: '/crawler-tasks', // 爬虫任务页面的路径
+        name: 'CrawlerTasks',
+        component: CrawlerTasks,
     }
 ];
 

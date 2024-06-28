@@ -24,12 +24,21 @@
                         <span v-show="!collapsed">爬虫管理</span>
                     </router-link>
                 </template>
-                <router-link to="/">
-                    <a-menu-item key="2">项目列表</a-menu-item>
+                <router-link to="/crawler-tasks">
+                    <a-menu-item key="2">爬虫任务</a-menu-item>
                 </router-link>
                 <router-link to="/">
-                    <a-menu-item key="3">创建项目</a-menu-item>
+                    <a-menu-item key="3">爬虫统计</a-menu-item>
                 </router-link>
+              <router-link to="/">
+                <a-menu-item key="4">代理管理</a-menu-item>
+              </router-link>
+              <router-link to="/">
+                <a-menu-item key="5">渠道管理</a-menu-item>
+              </router-link>
+              <router-link to="/">
+                <a-menu-item key="6">爬虫分类管理</a-menu-item>
+              </router-link>
             </a-sub-menu>
             <a-sub-menu key="sub2">
                 <template #title>
@@ -38,8 +47,18 @@
                         <span v-show="!collapsed">用户管理</span>
                     </router-link>
                 </template>
-                <a-menu-item key="4">用户列表</a-menu-item>
-                <a-menu-item key="5">添加用户</a-menu-item>
+              <router-link to="/">
+                <a-menu-item key="7">个人中心</a-menu-item>
+              </router-link>
+              <router-link to="/">
+                <a-menu-item key="8">添加用户</a-menu-item>
+              </router-link>
+              <router-link to="/">
+                <a-menu-item key="9">用户列表</a-menu-item>
+              </router-link>
+              <router-link to="/">
+                <a-menu-item key="10">管理者管理</a-menu-item>
+              </router-link>
             </a-sub-menu>
             <a-menu-item key="6">
                 <SettingOutlined/>
