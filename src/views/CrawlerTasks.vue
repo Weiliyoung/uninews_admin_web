@@ -47,6 +47,76 @@
         </template>
       </a-table>
     </div>
+
+    <!-- 编辑弹窗 -->
+    <a-modal v-model:visible="isModalVisible" title="编辑爬虫" width="800px" @ok="handleOk" @cancel="handleCancel">
+      <a-form layout="vertical">
+        <a-form-item label="ID">
+          <a-input v-model="editRecord.id" disabled/>
+        </a-form-item>
+        <a-form-item label="院校">
+          <a-input v-model="editRecord.school" placeholder="请输入院校"/>
+        </a-form-item>
+        <a-form-item label="栏目">
+          <a-input v-model="editRecord.category" placeholder="请输入栏目"/>
+        </a-form-item>
+        <a-form-item label="分类">
+          <a-input v-model="editRecord.type" placeholder="请输入分类"/>
+        </a-form-item>
+        <a-form-item label="地区">
+          <a-input v-model="editRecord.region" placeholder="请输入地区"/>
+        </a-form-item>
+        <a-form-item label="状态">
+          <a-input v-model="editRecord.status" placeholder="请输入状态"/>
+        </a-form-item>
+        <a-form-item label="采集总量">
+          <a-input-number v-model="editRecord.total" style="width: 100%;"/>
+        </a-form-item>
+        <a-form-item label="一周采集总量">
+          <a-input-number v-model="editRecord.weeklyTotal" style="width: 100%;"/>
+        </a-form-item>
+        <a-form-item label="上次采集时间">
+          <a-date-picker v-model="editRecord.lastCollectTime" style="width: 100%;" show-time/>
+        </a-form-item>
+        <a-form-item label="下次运行时间">
+          <a-date-picker v-model="editRecord.nextRunTime" style="width: 100%;" show-time/>
+        </a-form-item>
+        <a-form-item label="备注">
+          <a-input v-model="editRecord.remarks" placeholder="请输入备注"/>
+        </a-form-item>
+      </a-form>
+    </a-modal>
+
+    <!-- 新建爬虫弹窗 -->
+    <a-modal v-model:visible="isCreateModalVisible" title="新建爬虫" width="100%" height="90%" @ok="handleCreateOk" @cancel="handleCreateCancel">
+      <div class="create-modal-content">
+        <div class="form-section">
+          <a-form layout="vertical">
+            <a-form-item label="院校">
+              <a-input v-model="newRecord.school" placeholder="请输入院校"/>
+            </a-form-item>
+            <a-form-item label="栏目">
+              <a-input v-model="newRecord.category" placeholder="请输入栏目"/>
+            </a-form-item>
+            <a-form-item label="分类">
+              <a-input v-model="newRecord.type" placeholder="请输入分类"/>
+            </a-form-item>
+            <a-form-item label="地区">
+              <a-input v-model="newRecord.region" placeholder="请输入地区"/>
+            </a-form-item>
+            <a-form-item label="状态">
+              <a-input v-model="newRecord.status" placeholder="请输入状态"/>
+            </a-form-item>
+            <a-form-item label="备注">
+              <a-input v-model="newRecord.remarks" placeholder="请输入备注"/>
+            </a-form-item>
+          </a-form>
+        </div>
+        <div class="content-preview">
+          <p>这里可以预览一些内容或展示信息</p>
+        </div>
+      </div>
+    </a-modal>
   </div>
 </template>
 
@@ -91,6 +161,17 @@ export default {
         },
         // 可以添加更多数据
       ],
+      isModalVisible: false,
+      isCreateModalVisible: false,
+      editRecord: {},
+      newRecord: {
+        school: '',
+        category: '',
+        type: '',
+        region: '',
+        status: '',
+        remarks: '',
+      },
     };
   },
   methods: {
@@ -100,11 +181,14 @@ export default {
       console.log('爬虫状态', this.statuses);
     },
     handleCreate() {
-      // 新建爬虫逻辑
+      // 打开新建爬虫弹窗
+      this.isCreateModalVisible = true;
       console.log('新建爬虫');
     },
     handleEdit(record) {
-      // 编辑爬虫逻辑
+      // 打开编辑弹窗
+      this.editRecord = { ...record };
+      this.isModalVisible = true;
       console.log('编辑爬虫', record);
     },
     handleSchedule(record) {
@@ -115,23 +199,29 @@ export default {
       // 删除爬虫逻辑
       console.log('删除爬虫', record);
     },
+    handleOk() {
+      // 确认编辑
+      console.log('编辑确认', this.editRecord);
+      this.isModalVisible = false;
+    },
+    handleCancel() {
+      // 取消编辑
+      this.isModalVisible = false;
+    },
+    handleCreateOk() {
+      // 确认新建
+      console.log('新建确认', this.newRecord);
+      this.isCreateModalVisible = false;
+    },
+    handleCreateCancel() {
+      // 取消新建
+      this.isCreateModalVisible = false;
+    },
   },
 };
 </script>
 
 <style scoped>
-
-:where(.css-dev-only-do-not-override-19iuou).ant-table-wrapper .ant-table-thead > tr > th,
-:where(.css-dev-only-do-not-override-19iuou).ant-table-wrapper .ant-table-thead > tr > td {
-  position: relative;
-  color: rgba(0, 0, 0, 0.88);
-  font-weight: 600;
-  text-align: center;
-  background: #fafafa;
-  border-bottom: 1px solid #f0f0f0;
-  transition: background 0.2s ease;
-}
-
 .crawler-tasks {
   padding: 16px;
 }
@@ -185,10 +275,19 @@ export default {
   padding: 16px;
 }
 
-.action-buttons a-button {
-  margin-right: 8px;
-  padding: 0;
-  text-align: center;
+.create-modal-content {
+  display: flex;
+  justify-content: space-between;
 }
 
+.form-section {
+  width: 30%;
+  padding-right: 20px;
+}
+
+.content-preview {
+  width: 80%;
+  padding-left: 20px;
+  border-left: 1px solid #e8e8e8;
+}
 </style>
