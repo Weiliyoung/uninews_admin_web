@@ -1,11 +1,7 @@
 <template>
   <div class="user-profile">
-    <h2>个人中心</h2>
     <a-card :style="{ borderRadius: '8px' }">
       <a-row gutter="16">
-        <a-col span="8">
-          <a-avatar size="large" icon="user" />
-        </a-col>
         <a-col span="16">
           <a-descriptions title="" :column="1">
             <a-descriptions-item label="用户名">{{ user.username }}</a-descriptions-item>

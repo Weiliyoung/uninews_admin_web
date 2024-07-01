@@ -27,17 +27,17 @@
         <router-link to="/crawler-tasks">
           <a-menu-item key="2">爬虫任务</a-menu-item>
         </router-link>
-        <router-link to="/">
-          <a-menu-item key="3">爬虫统计</a-menu-item>
+        <router-link to="/proxy-management">
+          <a-menu-item key="3">代理管理</a-menu-item>
         </router-link>
         <router-link to="/">
-          <a-menu-item key="4">代理管理</a-menu-item>
+          <a-menu-item key="4">渠道管理</a-menu-item>
         </router-link>
         <router-link to="/">
-          <a-menu-item key="5">渠道管理</a-menu-item>
+          <a-menu-item key="5">爬虫分类</a-menu-item>
         </router-link>
-        <router-link to="/">
-          <a-menu-item key="6">爬虫分类管理</a-menu-item>
+        <router-link to="/crawler-stats">
+          <a-menu-item key="6">爬虫统计</a-menu-item>
         </router-link>
       </a-sub-menu>
       <a-sub-menu key="sub2">
