@@ -30,10 +30,10 @@
         <router-link to="/proxy-management">
           <a-menu-item key="3">代理管理</a-menu-item>
         </router-link>
-        <router-link to="/">
+        <router-link to="/channel-management">
           <a-menu-item key="4">渠道管理</a-menu-item>
         </router-link>
-        <router-link to="/">
+        <router-link to="/crawler-category">
           <a-menu-item key="5">爬虫分类</a-menu-item>
         </router-link>
         <router-link to="/crawler-stats">
@@ -54,9 +54,11 @@
           <a-menu-item key="8">用户列表</a-menu-item>
         </router-link>
       </a-sub-menu>
-      <a-menu-item key="6">
+      <a-menu-item key="3">
+        <router-link to="/system-settings">
         <SettingOutlined/>
         <span v-show="!collapsed">系统设置</span>
+        </router-link>
       </a-menu-item>
     </a-menu>
   </div>

@@ -42,6 +42,8 @@ yarn install
 
 npm install ant-design-vue@next
 npm install vue-router@next
+npm install echarts
+npm install @ant-design/icons-vue
 ```
 
 ## 提交规范

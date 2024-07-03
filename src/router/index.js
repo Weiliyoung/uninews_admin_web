@@ -6,6 +6,10 @@ import UserProfile from '@/views/UserProfile.vue';
 import UserList from '@/views/UserList.vue';
 import CrawlerStats from '../views/CrawlerStats.vue';
 import ProxyManagement from '../views/ProxyManagement';
+import CrawlerCategory from '../views/CrawlerCategory.vue';
+import ChannelManagement from '../views/ChannelManagement';
+import SystemSettings from '../views/SystemSettings.vue';
+
 
 const routes = [
     {
@@ -42,7 +46,22 @@ const routes = [
         path: '/proxy-management',
         name: 'ProxyManagement',
         component: ProxyManagement,
-    }
+    },
+    {
+        path: '/crawler-category',
+        name: 'CrawlerCategory',
+        component: CrawlerCategory
+    },
+    {
+        path: '/channel-management',
+        name: '',
+        component: ChannelManagement,
+    },
+    {
+        path: '/system-settings',
+        name: 'SystemSettings',
+        component: SystemSettings, // 配置系统设置页面路由
+    },
 ];
 
 const router = createRouter({
